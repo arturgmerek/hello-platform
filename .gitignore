@@ -1,2 +1,5 @@
-Library/
-ProjectSettings/
+Hello\ Platform/Library/
+Hello\ Platform/ProjectSettings/
+*.csproj
+*.sln
+*.userprefs
