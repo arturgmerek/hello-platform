@@ -1,5 +1,6 @@
 Hello\ Platform/Library/
 Hello\ Platform/ProjectSettings/
+Hello\ Platform/Temp/
 *.csproj
 *.sln
 *.userprefs
