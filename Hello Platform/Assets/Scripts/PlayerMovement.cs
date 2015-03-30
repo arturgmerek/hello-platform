@@ -4,8 +4,10 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
 
 	float inputH = 0.0f;
+	public float inputHfactor= 1.0f;
 	float inputV = 0.0f;
-	
+	public float inputVfactor = 1.0f;
+
 	void Update () 
 	{
 		Rigidbody body = this.GetComponent<Rigidbody>();
