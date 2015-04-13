@@ -24,5 +24,6 @@ public class PlayerMovement : MonoBehaviour {
 			body.AddForce(0.0f, inputV * 15, 0.0f);
 		}
 	}
+}
 
 
