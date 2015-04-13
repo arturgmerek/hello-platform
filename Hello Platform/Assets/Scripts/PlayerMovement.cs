@@ -2,15 +2,17 @@
 using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
-	public GameObject other;
-	public Camera cam = other.GetComponent<Camera>();
+	public GameObject cam;
+	private Transform camtrans = cam.GetComponent<Transform>();
 	float inputH = 0.0f;
 	public float inputHfactor= 1.0f;
 	float inputV = 0.0f;
 	public float inputVfactor = 1.0f;
 
-	void Update () 
-		
+	void Update () {
+
+		camtrans.position = new Vector3 (this.transform.localPosition.x, this.transform.localPosition.y, 5.0f);
+
 		{
 		Rigidbody body = this.GetComponent<Rigidbody>();
 
@@ -22,8 +24,7 @@ public class PlayerMovement : MonoBehaviour {
 		inputV = Input.GetAxis ("Vertical");
 		if (inputV > 0.0f) {
 			body.AddForce(0.0f, inputV * 15, 0.0f);
-			{
-				cam.fieldOfView = 45;	}
+			}
 			}
 		}
 	}
