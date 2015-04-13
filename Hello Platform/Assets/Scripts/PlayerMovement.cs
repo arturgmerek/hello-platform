@@ -3,14 +3,18 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
 	public GameObject cam;
-	private Transform camtrans = cam.GetComponent<Transform>();
-	float inputH = 0.0f;
+	private Transform camtrans;
+	private float inputH = 0.0f;
 	public float inputHfactor= 1.0f;
-	float inputV = 0.0f;
+	private float inputV = 0.0f;
 	public float inputVfactor = 1.0f;
 
+	void Start() {
+		camtrans = cam.GetComponent<Transform>();
+	}
+
 	void Update () {
-		camtrans.position = new Vector3 (this.transform.localPosition.x, this.transform.localPosition.y, 5.0f);
+		camtrans.position = new Vector3 (this.transform.localPosition.x, this.transform.localPosition.y, -5.0f);
 
 		Rigidbody body = this.GetComponent<Rigidbody>();
 
