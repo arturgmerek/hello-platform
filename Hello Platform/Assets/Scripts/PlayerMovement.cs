@@ -10,10 +10,8 @@ public class PlayerMovement : MonoBehaviour {
 	public float inputVfactor = 1.0f;
 
 	void Update () {
-
 		camtrans.position = new Vector3 (this.transform.localPosition.x, this.transform.localPosition.y, 5.0f);
 
-		{
 		Rigidbody body = this.GetComponent<Rigidbody>();
 
 		inputH = Input.GetAxis ("Horizontal");
@@ -24,8 +22,6 @@ public class PlayerMovement : MonoBehaviour {
 		inputV = Input.GetAxis ("Vertical");
 		if (inputV > 0.0f) {
 			body.AddForce(0.0f, inputV * 15, 0.0f);
-			}
-			}
 		}
 	}
 
