@@ -2,15 +2,21 @@
 using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
+
 	public GameObject cam;
 	private Transform camtrans;
-	private float inputH = 0.0f;
-	public float inputHfactor= 1.0f;
-	private float inputV = 0.0f;
-	public float inputVfactor = 1.0f;
+
+	private float inputH;
+	private float inputV;
+
+	public float inputHfactor;
+	public float inputVfactor;
+
+	public bool grounded;
 
 	void Start() {
 		camtrans = cam.GetComponent<Transform>();
+		grounded = true;
 	}
 
 	void Update () {
@@ -20,13 +26,21 @@ public class PlayerMovement : MonoBehaviour {
 
 		inputH = Input.GetAxis ("Horizontal");
 		if (inputH != 0.0f) {
-			body.AddForce(inputH * 5, 0.0f, 0.0f);
+			body.AddForce(inputH * inputHfactor, 0.0f, 0.0f);
 		}
 
-		inputV = Input.GetAxis ("Vertical");
-		if (inputV > 0.0f) {
-			body.AddForce(0.0f, inputV * 15, 0.0f);
+		if (grounded) {
+			inputV = Input.GetAxis ("Vertical");
+			if (inputV > 0.0f) {
+				body.AddForce (0.0f, 10.0f * inputVfactor, 0.0f);
+				grounded = false;
+			}
 		}
+	}
+
+	void OnCollisionEnter(Collision  info)
+	{
+		grounded = true;
 	}
 }
 
