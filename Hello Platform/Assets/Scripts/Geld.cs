@@ -2,11 +2,10 @@
 using System.Collections;
 
 public class Geld : MonoBehaviour {
-	public GameObject mainCam;
-	private GeldDestroyer mainCamtrans;
+	public GameObject mainCam;	
 	void OnTriggerEnter() {
-		mainCamtrans = mainCam.GetComponent<GeldDestroyer> ();
-		Destroy(this.gameObject);
+		mainCam.GetComponent<GeldDestroyer>().score++;
+			Destroy(this.gameObject);
 
 	}
 }
