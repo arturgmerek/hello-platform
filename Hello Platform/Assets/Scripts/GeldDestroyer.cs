@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class GeldDestroyer : MonoBehaviour {
-	public static int score
-	
-	
+	public static int score;
+
+		
 }
