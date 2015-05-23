@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	public float inputHfactor;
 	public float inputVfactor;
-
+	private float dead;
 	public bool grounded;
 
 	void Start() {
@@ -35,6 +35,9 @@ public class PlayerMovement : MonoBehaviour {
 				body.AddForce (0.0f, 10.0f * inputVfactor, 0.0f);
 				grounded = false;
 			}
+		}
+		if(dead < InputV){
+				this.transform.position = (0.0f ,-6.0f, 0.0f);
 		}
 	}
 
