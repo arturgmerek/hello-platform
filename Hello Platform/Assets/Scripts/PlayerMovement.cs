@@ -5,22 +5,19 @@ public class PlayerMovement : MonoBehaviour {
 
 	public GameObject cam;
 	private Transform camtrans;
-	public GameObject mainCamera;
+	private float deathvelocity;
 	private float inputH;
 	private float inputV;
 
 	public float inputHfactor;
 	public float inputVfactor;
-	private float deathvelocity;
+	private float dead;
 	public bool grounded;
 
 	void Start() {
 		camtrans = cam.GetComponent<Transform>();
 		grounded = true;
 		deathvelocity = 9f;
-	}
-	void Awake(){
-		DontDestroyOnLoad(this);
 	}
 
 	void Update () {
@@ -40,10 +37,7 @@ public class PlayerMovement : MonoBehaviour {
 				grounded = false;
 			}
 		}
-		if(deathvelocity < -body.velocity.y){
-				this.transform.position = new Vector3(-5.24f, -2.0f, 0.0f);
-			mainCamera.GetComponent<GeldDestroyer>().lifes--;
-		}
+	
 	}
 
 	void OnCollisionEnter(Collision  info)
