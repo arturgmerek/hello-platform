@@ -8,6 +8,10 @@ public class GeldDestroyer : MonoBehaviour {
 		score = 0;
 		lifes = 5;
 	}
+	void Awake(){
+		DontDestroyOnLoad (this);
+	}
+
 	void OnGUI() {
 		// Make a background box
 		GUI.Box(new Rect(10,10,50,50), "Score\n" + score.ToString());

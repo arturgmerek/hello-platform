@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour {
 		grounded = true;
 		deathvelocity = 9f;
 	}
+	void Awake(){
+		DontDestroyOnLoad(this);
+	}
 
 	void Update () {
 		camtrans.position = new Vector3 (this.transform.localPosition.x, this.transform.localPosition.y, -5.0f);
