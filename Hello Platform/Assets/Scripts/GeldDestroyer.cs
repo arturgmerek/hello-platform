@@ -4,11 +4,11 @@ using System.Collections;
 public class GeldDestroyer : MonoBehaviour {
 	public int score;
 	public int lifes;
-	private float deathvelocity;
+
 	void Start() {
 		score = 0;
 		lifes = 5;
-		deathvelocity = 9f
+
 
 	}
 	void Awake(){
@@ -22,10 +22,11 @@ public class GeldDestroyer : MonoBehaviour {
 
 	}
 	//(sprawdzaj co sekundę)
-	public Die(){
-		if(deathvelocity < -GameObject.PlayerBall.velocity.y){
-			this.lifes--;
-
-	}
+	public void Die(){
+		if(lifes > 0){
+			this.lifes --;
+			}
+		if(life < 0){
+		}
 	}
 

@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour {
 	private float deathvelocity;
 	private float inputH;
 	private float inputV;
-
+	private float deathVelocity;
 	public float inputHfactor;
 	public float inputVfactor;
 	private float dead;
@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Start() {
 		camtrans = cam.GetComponent<Transform>();
 		grounded = true;
-		deathvelocity = 9f;
+		deathVelocity = 9f;
 	}
 
 	void Update () {
@@ -36,6 +36,9 @@ public class PlayerMovement : MonoBehaviour {
 				body.AddForce (0.0f, 10.0f * inputVfactor, 0.0f);
 				grounded = false;
 			}
+		}
+		if(deathVelocity < -body.velocity.y){
+			this.GetComponent<GeldDestroyer>().Die;
 		}
 	
 	}
