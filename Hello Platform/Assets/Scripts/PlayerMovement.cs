@@ -27,7 +27,10 @@ public class PlayerMovement : MonoBehaviour {
 		camtrans.position = new Vector3 (this.transform.localPosition.x, this.transform.localPosition.y, -5.0f);
 
 		Rigidbody body = this.GetComponent<Rigidbody>();
-
+		PlayerPrefs.GetString ("CurrentLevel");
+		if ("3") {
+			GameObject.Destroy (this);
+		}
 		inputH = Input.GetAxis ("Horizontal");
 		if (inputH != 0.0f) {
 			body.AddForce(inputH * inputHfactor, 0.0f, 0.0f);

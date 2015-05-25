@@ -7,7 +7,9 @@ public class GeldDestroyer : MonoBehaviour {
 
 	void Start() {
 		score = 0;
-		lifes = 5;
+		lifes = 0;
+
+
 	}
 	void Awake(){
 		DontDestroyOnLoad (this);
@@ -17,17 +19,22 @@ public class GeldDestroyer : MonoBehaviour {
 		// Make a background box
 		GUI.Box(new Rect(10,10,50,50), "Score\n" + score.ToString());
 		GUI.Box (new Rect (60, 10, 50, 50), "Lifes\n" + lifes.ToString());
-		if (-lifes > 0){
-			GUI.Box (new Rect (50, 50, 50, 50), "Game Over");
-		}
-	}
-	//(sprawdzaj co sekundę)
-	public void Die(){
-		if (lifes > 0) {
-			this.lifes --;
-		}
 	}
 	void Update(){
+		PlayerPrefs.GetString ("CurrentLEvel");
+		if ("CurrentLevel" = "3") {
+			GameObject.Destroy(this);
 
+
+		}
+		public void Die(){
+		if(lifes > -2){
+			this.lifes --;
+			}
+
+		if (lifes < 0) {
+			Application.LoadLevel ("Third");
+			}
+		}
 	}
 }
