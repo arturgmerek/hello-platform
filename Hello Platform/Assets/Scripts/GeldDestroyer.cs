@@ -7,9 +7,8 @@ public class GeldDestroyer : MonoBehaviour {
 
 	void Start() {
 		score = 0;
-		lifes = 0;
-
-
+		lifes = 5;
+		PlayerPrefs.SetString ("CurrentLevel", "1");
 	}
 	void Awake(){
 		DontDestroyOnLoad (this);
@@ -21,19 +20,19 @@ public class GeldDestroyer : MonoBehaviour {
 		GUI.Box (new Rect (60, 10, 50, 50), "Lifes\n" + lifes.ToString());
 		if (PlayerPrefs.GetString("CurrentLevel") == "3") {
 			GUI.Box (new Rect (800, 300, 300, 100), "Game Over");
-			GUI.Button (new Rect (900, 400, 200, 50), "Continue"); 
+			if(GUI.Button (new Rect (850, 330, 200, 50), "Continue")){ 
 				Application.LoadLevel ("first");
+			}
 			Debug.Log ("sexujesie");
 		}
 	}
 	public void Die(){
-		if(lifes > -2){
+		if (lifes != 0) {
 			this.lifes --;
-			}
-
-		if(lifes < -1){
-			Application.LoadLevel ("Third");
+		}
+		else{
 			PlayerPrefs.SetString ("CurrentLevel", "3");
+			Application.LoadLevel ("Third");
 		}
 	}
 
