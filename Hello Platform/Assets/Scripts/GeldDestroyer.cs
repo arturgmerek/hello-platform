@@ -22,6 +22,7 @@ public class GeldDestroyer : MonoBehaviour {
 			GUI.Box (new Rect (800, 300, 300, 100), "Game Over");
 			if(GUI.Button (new Rect (850, 330, 200, 50), "Continue")){ 
 				Application.LoadLevel ("first");
+				DestroyImmediate (this, true);
 			}
 			Debug.Log ("sexujesie");
 		}

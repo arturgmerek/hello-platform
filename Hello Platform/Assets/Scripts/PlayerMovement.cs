@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour {
 		Rigidbody body = this.GetComponent<Rigidbody>();
 		if (PlayerPrefs.GetString("CurrentLevel") == "3") {
 			DestroyImmediate (this, true);
+			return;
 		}
 		inputH = Input.GetAxis ("Horizontal");
 		if (inputH != 0.0f) {
